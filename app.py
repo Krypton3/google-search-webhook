@@ -22,7 +22,7 @@ def webhook():
 
 
 def MakeWebRequest(req):
-    if req.get("request").get("action") != "interest":
+    if req.get("result").get("action") != "interest":
         return {}
     result = req.get("result")
     parameters = result.get("parameters")
@@ -42,5 +42,3 @@ if __name__ == '__main__':
     port = int(os.getenv('POST', 80))
     print("Starting app on %d" % port)
     app.run(debug=True, port=port, host='0.0.0.0')
-
-
