@@ -27,7 +27,7 @@ def MakeWebRequest(req):
         parameters = result.get("parameters")
         names = parameters.get("org-name")
         organization = {'org1': '10', 'org2': '20', 'org3': '30'}
-        speech = "The organization's of " + names + " small projects are: " + str(organization)
+        speech = "The organization's of " + names + " small projects are: " + str(organization[names])
         print("Response: ")
         print(speech)
         return {
@@ -42,11 +42,11 @@ def MakeWebRequest(req):
         n2 = parameters.get("number1")
         add = int(n1) + int(n2)
         print("Response: ")
-        speech = 'The sum of two number is: '
+        speech = 'The sum of two number is: ' + str(add)
         print(add)
         return {
             "speech": speech,
-            "displayText": str(add),
+            "displayText": speech,
             "source": "Athena"
         }
     else:
