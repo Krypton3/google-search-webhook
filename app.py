@@ -27,7 +27,7 @@ def MakeWebRequest(req):
         parameters = result.get("parameters")
         names = parameters.get("org-name")
         organization = {'org1': '10', 'org2': '20', 'org3': '30'}
-        speech = "The organization's of " + names + " small projects are: " + str(organization[names])
+        speech = "The organization's of " + names + " small projects are: " + str(organization)
         print("Response: ")
         print(speech)
         return {
