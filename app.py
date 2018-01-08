@@ -22,20 +22,35 @@ def webhook():
 
 
 def MakeWebRequest(req):
-    if req.get("result").get("action") != "interest":
+    if req.get("result").get("action") == "interest":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        names = parameters.get("org-name")
+        organization = {'org1': '10', 'org2': '20', 'org3': '30'}
+        speech = "The organization's of " + names + " small projects are: " + str(organization)
+        print("Response: ")
+        print(speech)
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "source": "Athena"
+        }
+    elif req.get("result").get("action") == "Maths":
+        result = req.get("result")
+        parameters = result.get("parameters")
+        n1 = parameters.get("number")
+        n2 = parameters.get("number1")
+        add = int(n1) + int(n2)
+        print("Response: ")
+        speech = 'The sum of two number is: '
+        print(add)
+        return {
+            "speech": speech,
+            "displayText": str(add),
+            "source": "Athena"
+        }
+    else:
         return {}
-    result = req.get("result")
-    parameters = result.get("parameters")
-    names = parameters.get("org-name")
-    organization = {'org1': '10', 'org2': '20', 'org3': '30'}
-    speech = "The organization's of " + names + " small projects are: " + str(organization)
-    print("Response: ")
-    print(speech)
-    return {
-        "speech": speech,
-        "displayText": speech,
-        "source": "Athena"
-    }
 
 
 if __name__ == '__main__':
