@@ -40,10 +40,23 @@ def MakeWebRequest(req):
         parameters = result.get("parameters")
         n1 = parameters.get("number")
         n2 = parameters.get("number1")
-        add = int(n1) + int(n2)
+        sign = parameters.get("cram-math")
+
+        if sign == '+':
+            res = n1 + n2
+        elif sign == '-':
+            res = n1 + n2
+        elif sign == '/':
+            if n2 != 0:
+                res = n1 / n2
+            else:
+                res = "Invalid"
+        else:
+            res = n1 * n2
+
         print("Response: ")
-        speech = 'The sum of two number is: ' + str(add)
-        print(add)
+        speech = "The " + sign + " of two values is: " + str(res)
+        print(res)
         return {
             "speech": speech,
             "displayText": speech,
