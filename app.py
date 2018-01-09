@@ -43,16 +43,16 @@ def MakeWebRequest(req):
         sign = parameters.get("cram-math")
 
         if sign == '+':
-            res = n1 + n2
+            res = int(n1) + int(n2)
         elif sign == '-':
-            res = n1 + n2
+            res = int(n1) + int(n2)
         elif sign == '/':
             if n2 != 0:
-                res = n1 / n2
+                res = int(n1) / int(n2)
             else:
                 res = "Invalid"
         else:
-            res = n1 * n2
+            res = int(n1) * int(n2)
 
         print("Response: ")
         speech = "The " + sign + " of two values is: " + str(res)
