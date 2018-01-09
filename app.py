@@ -45,7 +45,7 @@ def MakeWebRequest(req):
         if sign == '+':
             res = int(n1) + int(n2)
         elif sign == '-':
-            res = int(n1) + int(n2)
+            res = int(n1) - int(n2)
         elif sign == '/':
             if n2 != 0:
                 res = int(n1) / int(n2)
