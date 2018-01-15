@@ -62,6 +62,17 @@ def MakeWebRequest(req):
             "displayText": speech,
             "source": "Athena"
         }
+    elif req.get("result").get("action") == "QueryList":
+        result = req.get("result")
+        speech = result.get("resolvedQuery")
+        print("Response: ")
+        res = "The text is is: " + speech
+        print(res)
+        return {
+            "speech": res,
+            "displayText": res,
+            "source": "Athena"
+        }
     else:
         return {}
 
